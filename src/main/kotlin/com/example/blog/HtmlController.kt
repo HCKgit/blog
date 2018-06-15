@@ -8,18 +8,27 @@ import org.springframework.web.bind.annotation.PathVariable
 
 @Controller
 class HtmlController(private val repository: ArticleRepository,
-                     private val markdownConverter: MarkdownConverter) {
+                     private val markdownConverter: MarkdownConverter,
+                     private val properties: BlogProperties) {
 
     @GetMapping("/")
     fun blog(model: Model): String {
         // Here we import the org.springframework.ui.set extension function in order to be able to write
-        // model["title"] = "Blog"
+        //    model["title"] = "Blog"
         // instead of
-        // model.addAttribute("title", "Blog").
-        model["title"] = "Blog"
+        //    model.addAttribute("title", "Blog").
+        model["title"] = properties.title
+        model["banner"] = properties.banner
         model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render() }
         return "blog"
     }
+//    @GetMapping("/")
+//    fun blog(model: Model): String {
+
+//        model["title"] = "Blog"
+//        model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render() }
+//        return "blog"
+//    }
 
     @GetMapping("/article/{id}")
     fun article(@PathVariable id: Long, model: Model): String {
