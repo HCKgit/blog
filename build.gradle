@@ -1,6 +1,10 @@
 /* ----------------------------------------------------------------------------
 From https://spring.io/guides/tutorials/spring-boot-kotlin/
 Development fo Digital Ocean Server Test and Kotlin project piloting
+
+- ran "./gradlew wrapper --gradle-version 4.7" to upgrade gradle
+- ran "/gradlew kaptKotlin" after adding 2 things
+
 MehStuff.com & HCK copyright 2018
 ---------------------------------------------------------------------------- */
 
@@ -29,7 +33,8 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 
 // Annotation processors (see JSR 269) are supported in Kotlin with the kapt compiler plugin.
-//Being short, you can use libraries such as Dagger or Data Binding in your Kotlin projects.
+// Being short, you can use libraries such as Dagger or Data Binding in your Kotlin projects.
+// run  /gradlew kaptKotlin
 apply plugin: 'kotlin-kapt'
 
 group = 'com.example'
