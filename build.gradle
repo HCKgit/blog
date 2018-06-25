@@ -18,8 +18,9 @@ Three ways to deploy (plus another i did not try yet)
 
 - bootJar gradle task
   - is fully executable (*** but no inner script?? (4th way))
-  - can be installed as a service
-  - service blob start (and tfriends)
+  - can be installed as a service 
+  - - add service unit file ... add more here later
+  - service blog start
 
 - bootJar gradle task
   - is fully executable (*** but no inner script?? (4th way))
