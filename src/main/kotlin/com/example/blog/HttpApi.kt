@@ -12,6 +12,7 @@ MehStuff.com & HCK copyright 2018
 package com.example.blog
 
 import org.springframework.web.bind.annotation.*
+import javax.validation.Valid
 
 @RestController
 @RequestMapping("/api/article")
@@ -20,6 +21,10 @@ class ArticleController(private val repository: ArticleRepository,
 
     @GetMapping("/")
     fun findAll() = repository.findAllByOrderByAddedAtDesc()
+
+    @PostMapping("/")
+    fun createArticle(@Valid @RequestBody article: Article) : Article =
+            repository.save(article)
 
     @GetMapping("/{id}")
     fun findOne(@PathVariable id: Long, @RequestParam converter: String?) = when (converter) {

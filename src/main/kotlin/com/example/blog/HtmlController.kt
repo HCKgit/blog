@@ -5,6 +5,9 @@ import org.springframework.ui.Model
 import org.springframework.ui.set
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import javax.validation.Valid
 
 @Controller
 class HtmlController(private val repository: ArticleRepository,
@@ -40,6 +43,9 @@ class HtmlController(private val repository: ArticleRepository,
         model["article"] = article
         return "article"
     }
+
+
+
 
     fun Article.render() = RenderedArticle(
             title,

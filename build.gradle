@@ -69,7 +69,7 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'kotlin-kapt'
 
 group = 'com.example'
-version = '0.6-srv'
+version = '0.9-srv'
 sourceCompatibility = 1.8
 compileKotlin {
 	kotlinOptions {
@@ -83,6 +83,7 @@ compileTestKotlin {
 		jvmTarget = "1.8"
 	}
 }
+
 
 // required to install as a service (ln -s target /etc/init.d/appname)
 repositories {
@@ -110,10 +111,15 @@ dependencies {
     compile('com.fasterxml.jackson.module:jackson-module-kotlin')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
+
 	runtime('com.h2database:h2')
+
+
 
     compile("com.atlassian.commonmark:commonmark:0.11.0")
     compile("com.atlassian.commonmark:commonmark-ext-autolink:0.11.0")
+
+
 
     testCompile('org.springframework.boot:spring-boot-starter-test') {
 		exclude module: 'junit'

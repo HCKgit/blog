@@ -13,8 +13,7 @@ import org.springframework.context.annotation.Bean
 @EnableConfigurationProperties(BlogProperties::class)
 class BlogApplication{
 
-
-// For deployment notes ... when running standalone ... not needed.
+// For deployment notes ... when running standalone ... not needed for what???
 //
 //    If you intend to start your application as a war or as an executable application, you need to share the customizations of the builder in a method that is both available to the SpringBootServletInitializer callback and in the main method in a class similar to the following:
 //
@@ -52,9 +51,8 @@ class BlogApplication{
     fun databaseInitializer(userRepository: UserRepository,
                             articleRepository: ArticleRepository) = CommandLineRunner {
 
-        val smaldini = User("smaldini", "Stéphane", "Maldini")
-        userRepository
-                .save(smaldini)
+        val smaldini = User("smaldini", "Stéphane", "Maldini", "I am good")
+        userRepository.save(smaldini)
 
         articleRepository
                 .save(Article(
