@@ -23,7 +23,6 @@ class RepositoriesTests(@Autowired val entityManager: TestEntityManager,
         entityManager.flush()
 
         val found = articleRepository.findById(article.id!!)
-
         assertThat(found.get()).isEqualTo(article)
     }
 
@@ -34,7 +33,6 @@ class RepositoriesTests(@Autowired val entityManager: TestEntityManager,
         entityManager.flush()
 
         val found = userRepository.findById(juergen.login)
-
         assertThat(found.get()).isEqualTo(juergen)
     }
 
